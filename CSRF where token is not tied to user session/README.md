@@ -46,3 +46,24 @@ The application uses a CSRF token, but it is **not tied to the user session**. A
     </script>
 </body>
 </html>
+```
+🚀 Delivery Steps
+
+Go to Exploit Server.
+Paste the HTML in the Body section.
+Deliver to victim.
+The lab solves when the email is changed.
+
+⚡ Impact
+An attacker can perform state-changing actions using simple GET requests, bypassing the intended CSRF protection.
+🛡️ Prevention Methods
+
+Validate CSRF token regardless of HTTP method.
+Reject GET requests for state-changing operations (use POST/PUT/DELETE only).
+Follow RESTful principles: GET should be safe and idempotent.
+
+🔬 Key Learning Points
+
+CSRF defenses must cover all HTTP methods that perform actions.
+Relying only on request method for security is dangerous.
+Always validate tokens on every state-changing request.
